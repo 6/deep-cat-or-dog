@@ -1,10 +1,10 @@
 # deep-cat-or-dog
 
-tensorflow model for answering, "Cat or Dog?"
+use deep learning (tensorflow) to answer the question, "Cat or Dog?"
 
 ### using the classifier
 
-try it with example images that were not in the training set:
+try it out with example images that weren't in the training set:
 
 ```
 # In Docker
@@ -37,4 +37,14 @@ with:
 docker run -it -v /path/to/deep-cat-or-dog:/tf_files  gcr.io/tensorflow/tensorflow:latest-devel
 ```
 
-Finally, on `4. (Re)training Inception`, replace `--image_dir /tf_files/flower_photos` with `--image_dir /tf_files/tf_train`.
+Finally, on `4. (Re)training Inception`, replace
+
+```
+--image_dir /tf_files/flower_photos
+```
+
+with:
+
+```
+--image_dir /tf_files/tf_train
+```
