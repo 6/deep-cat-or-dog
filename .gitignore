@@ -1,1 +1,4 @@
 /train/*.jpg
+/tf_train/**/*.jpg
+/inception/**/*
+/bottlenecks/**/*
