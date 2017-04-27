@@ -4,7 +4,18 @@ tensorflow model for answering, "Cat or Dog?"
 
 ### using the classifier
 
-TODO
+try it with example images that were not in the training set:
+
+```
+# In Docker
+python label_image.py example/cat1.jpg
+cat (score = 0.99855)
+dog (score = 0.00145)
+
+python label_image.py example/dog1.jpg
+dog (score = 0.98780)
+cat (score = 0.01220)
+```
 
 ### training the model yourself (optional)
 
