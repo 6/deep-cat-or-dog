@@ -52,11 +52,15 @@ with:
 
 ```
 # In Docker:
-cd /tensorflow
-bazel build tensorflow/python/tools:optimize_for_inference
-bazel-bin/tensorflow/python/tools/optimize_for_inference \
-   --input=/tf_files/retrained_graph.pb \
-   --output=/tf_files/optimized_graph.pb \
-   --input_names=Mul \
-   --output_names=final_result
+python /tensorflow/tensorflow/python/tools/optimize_for_inference.py \
+  --input=/tf_files/retrained_graph.pb \
+  --output=/tf_files/optimized_graph.pb \
+  --input_names='DecodeJpeg/contents:0' \
+  --output_names=final_result
+
+python /tensorflow/tensorflow/tools/quantization/quantize_graph.py \
+  --input=/tf_files/optimized_graph.pb
+  --output=/tf_files/quantized_graph.pb
+  --output_node_names=final_result
+  --mode=weights_rounded
 ```
