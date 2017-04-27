@@ -47,3 +47,16 @@ with:
 ```
 --image_dir /tf_files/tf_train
 ```
+
+### optimizing the model (optional, for use in mobile apps)
+
+```
+# In Docker:
+cd /tensorflow
+bazel build tensorflow/python/tools:optimize_for_inference
+bazel-bin/tensorflow/python/tools/optimize_for_inference \
+   --input=/tf_files/retrained_graph.pb \
+   --output=/tf_files/optimized_graph.pb \
+   --input_names=Mul \
+   --output_names=final_result
+```
