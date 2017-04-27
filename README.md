@@ -48,7 +48,9 @@ with:
 --image_dir /tf_files/tf_train
 ```
 
-### optimizing the model (optional, for use in mobile apps)
+### optimizing the model (optional)
+
+This step makes classification faster but potentially lower accuracy:
 
 ```
 # In Docker:
