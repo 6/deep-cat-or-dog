@@ -7,7 +7,6 @@ use deep learning (tensorflow) to answer the question, "Cat or Dog?"
 try it out with example images that weren't in the training set:
 
 ```
-# In Docker
 python label_image.py example/cat1.jpg
 cat (score = 0.99855)
 dog (score = 0.00145)
