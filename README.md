@@ -66,3 +66,16 @@ python /tensorflow/tensorflow/tools/quantization/quantize_graph.py \
   --output_node_names=final_result
   --mode=weights_rounded
 ```
+
+Finally, use bazel to run memory mapping ([why?](https://petewarden.com/2016/09/27/tensorflow-for-mobile-poets/)):
+
+```
+# In Docker:
+cd /tensorflow
+bazel build tensorflow/contrib/util:convert_graphdef_memmapped_format
+bazel-bin/tensorflow/contrib/util/convert_graphdef_memmapped_format \
+  --in_graph=/tf_files/quantized_graph.pb \
+  --out_graph=/tf_files/memmapped_graph.pb
+```
+
+Note: you may have to append `--local_resources 256,2.0,1.0` to the bazel build command to get it to work within Docker.
