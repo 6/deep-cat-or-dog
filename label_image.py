@@ -5,7 +5,10 @@ image_path = sys.argv[1]
 
 graph_path = "retrained_graph.pb"
 if len(sys.argv) > 2:
-    graph_path = sys.argv[2]    
+    graph_path = sys.argv[2]
+
+if graph_path == "memmapped_graph.pb":
+    raise ValueError("label_image only supports graphs in plain GraphDef protobuf.")
 
 # Read in the image_data
 image_data = tf.gfile.FastGFile(image_path, 'rb').read()
